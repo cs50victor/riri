@@ -8,3 +8,7 @@ Python and C++
 - Give it alot of synchronous text and speech to train a neural network (Resemble Ai)
 - Deep Learning
 - Selection of diffrent combinations of  Phonemes
+
+
+# Deep Neural networks- a lot of neurons (deep) 
+# Genertive Model
