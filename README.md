@@ -1,7 +1,7 @@
 # ~~S~~RiRi
 Neural TextToSpeech 
 
-Python , Neuraland C++
+Python and C++
 
 - 24 hours of cleaned voice data | Neural Voice
 (https://speech.microsoft.com/customvoice)
