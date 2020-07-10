@@ -24,8 +24,19 @@ Python and C++
                       => twitter => instagram
 
 Youtube- codyko (jokes/reaction)
-       - Kurzgesagt – In a Nutshell (education/story)
+       - Kurzgesagt – In a Nutshell (education/storytelling (strangerthings intresting)/ animation motion design)
+            - Odds1out , Jidenanimation, Infographics shows, Dear diary, Andrea trabea
        - Jake tren (education/story)
        - Azzerz (voice over skits)
-       - Maestro Ziikos (fake over songs) 
-       -Fireship.io (tech)
+       - Maestro Ziikos & Dripreport (fake cover songs) 
+       - Fireship.io (tech)
+       - JxmyHighroller (Sports)
+       - Watch Mojo (Top 10 list -around movies/hollywood/anime)
+       - jacksepticeye/Tiko (Gameplay -3d model fornite face)
+       - Bright Side (just clickbait and random stuff)
+       - Fornite films (3d animation & SFM)
+       - Business youtube (how to make money)
+       - Youtube growth and sucess story.(talk about people making)
+       - WawamuStats
+       -Drama
+animations--
