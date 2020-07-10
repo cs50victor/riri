@@ -22,3 +22,10 @@ Python and C++
     Traffic Funnel
      Youtube(organic) => patreon
                       => twitter => instagram
+
+Youtube- codyko (jokes/reaction)
+       - Kurzgesagt – In a Nutshell (education/story)
+       - Jake tren (education/story)
+       - Azzerz (voice over skits)
+       - Maestro Ziikos (fake over songs) 
+       -Fireship.io (tech)
