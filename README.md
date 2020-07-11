@@ -2,7 +2,7 @@
 Neural TextToSpeech 
 
 Python and C++
--WaveRNN and Tacotron2
+-WaveRNN and Tacotron2 **
 
 - 24 hours of cleaned voice data | Neural Voice
 (https://speech.microsoft.com/customvoice)
