@@ -1,6 +1,21 @@
 # ~~S~~RiRi
 Neural TextToSpeech 
 
+# TTS
+     -    Download espeak
+     -    Download this [Zip] https://github.com/mozilla/TTS/tree/53b24625a7b898447b0cda2929503b96752d9eae rename it to TTS
+     -  Download model (config and ) from  https://drive.google.com/drive/folders/10ymOlWHutqTtfDYhIbHULn2IKDKP0O9m into a folder "d" into TTS
+     -    make sure you're using a conda env
+     -    python setup.py build
+     -    pip install -r requirements.txt
+     -    python setup.py bdist_wheel --checkpoint .\d\checkpoint_name.tar --model_config .\d\config.json
+     -    pip uninstall tensorflow
+     -    cd ..
+     -    pip install ./TTS/dist/TTS-0.0.1+4f61539-py3-none-any.whl (your filename will differ)
+     -    python -m TTS.server.server
+     -    Anything else read this https://github.com/mozilla/TTS/issues/423
+
+
 Python and C++
 -WaveRNN and Tacotron2 **
 
@@ -29,7 +44,7 @@ Youtube- codyko (jokes/reaction)
             - Odds1out , Jidenanimation, Infographics shows, Dear diary, Andrea trabea
        - Jake tren (education/story)
        - Azzerz (voice over skits)
-       - Maestro Ziikos & Dripreport (fake cover songs) 
+       - Maestro Ziikos & Dripreport (fake cover songs) NAME- Deep Basement
        - Fireship.io (tech)
        - JxmyHighroller (Sports)
        - Watch Mojo (Top 10 list -around movies/hollywood/anime)
