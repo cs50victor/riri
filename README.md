@@ -13,7 +13,10 @@ Neural TextToSpeech
      -    cd ..
      -    pip install ./TTS/dist/TTS-0.0.1+4f61539-py3-none-any.whl (your filename will differ)
      -    python -m TTS.server.server
+     -    pip uninstall numba
+     -    pip install numba==0.48
      -    Anything else read this https://github.com/mozilla/TTS/issues/423
+     -     and https://gist.github.com/jcc10/d6d68df2204e239ce1e6960a9b107aac
 
 
 Python and C++
