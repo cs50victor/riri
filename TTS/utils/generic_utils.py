@@ -113,7 +113,7 @@ def save_checkpoint(model, optimizer, optimizer_st, model_loss, out_path,
                     current_step, epoch):
     checkpoint_path = 'checkpoint_{}.pth.tar'.format(current_step)
     checkpoint_path = os.path.join(out_path, checkpoint_path)
-    print(" > CHECKPOINT : {}".format(checkpoint_path))
+    print(" | | > Checkpoint saving : {}".format(checkpoint_path))
 
     new_state_dict = model.state_dict()
     state = {
@@ -144,7 +144,7 @@ def save_best_model(model, optimizer, model_loss, best_loss, out_path,
         best_loss = model_loss
         bestmodel_path = 'best_model.pth.tar'
         bestmodel_path = os.path.join(out_path, bestmodel_path)
-        print(" > BEST MODEL ({0:.5f}) : {1:}".format(
+        print("\n > BEST MODEL ({0:.5f}) : {1:}".format(
             model_loss, bestmodel_path))
         torch.save(state, bestmodel_path)
     return best_loss
@@ -368,9 +368,6 @@ class KeepAverage():
     def __getitem__(self, key):
         return self.avg_values[key]
 
-    def items(self):
-        return self.avg_values.items()
-
     def add_value(self, name, init_val=0, init_iter=0):
         self.avg_values[name] = init_val
         self.iters[name] = init_iter
@@ -392,159 +389,3 @@ class KeepAverage():
     def update_values(self, value_dict):
         for key, value in value_dict.items():
             self.update_value(key, value)
-
-
-def _check_argument(name, c, enum_list=None, max_val=None, min_val=None, restricted=False, val_type=None, alternative=None):
-    if alternative in c.keys() and c[alternative] is not None:
-        return
-    if restricted:
-        assert name in c.keys(), f' [!] {name} not defined in config.json'
-    if name in c.keys():
-        if max_val:
-            assert c[name] <= max_val, f' [!] {name} is larger than max value {max_val}'
-        if min_val:
-            assert c[name] >= min_val, f' [!] {name} is smaller than min value {min_val}'
-        if enum_list:
-            assert c[name].lower() in enum_list, f' [!] {name} is not a valid value'
-        if val_type:
-            assert isinstance(c[name], val_type) or c[name] is None, f' [!] {name} has wrong type - {type(c[name])} vs {val_type}'
-
-
-tcolors = AttrDict({
-    'OKBLUE': '\033[94m',
-    'HEADER': '\033[95m',
-    'OKGREEN': '\033[92m',
-    'WARNING': '\033[93m',
-    'FAIL': '\033[91m',
-    'ENDC': '\033[0m',
-    'BOLD': '\033[1m',
-    'UNDERLINE': '\033[4m'
-})
-
-
-def print_train_step(batch_steps, step, global_step, avg_spec_length, avg_text_length, step_time, loader_time, lr, print_dict):
-    indent = "     | > "
-    print()
-    log_text = "{}   --> STEP: {}/{} -- GLOBAL_STEP: {}{}\n".format(tcolors.BOLD, step, batch_steps, global_step, tcolors.ENDC)
-    for key, value in print_dict.items():
-        log_text += "{}{}: {:.5f}\n".format(indent, key, value)
-    log_text += f"{indent}avg_spec_len: {avg_spec_length}\n{indent}avg_text_len: {avg_text_length}\
-        \n{indent}step_time: {step_time:.2f}\n{indent}loader_time: {loader_time:.2f}\n{indent}lr: {lr:.5f}"\
-        .format(indent, avg_spec_length, indent, avg_text_length, indent, step_time, indent, loader_time, indent, lr)
-    print(log_text, flush=True)
-
-
-def check_config(c):
-    _check_argument('model', c, enum_list=['tacotron', 'tacotron2'], restricted=True, val_type=str)
-    _check_argument('run_name', c, restricted=True, val_type=str)
-    _check_argument('run_description', c, val_type=str)
-
-    # AUDIO
-    _check_argument('audio', c, restricted=True, val_type=dict)
-
-    # audio processing parameters
-    _check_argument('num_mels', c['audio'], restricted=True, val_type=int, min_val=10, max_val=2056)
-    _check_argument('num_freq', c['audio'], restricted=True, val_type=int, min_val=128, max_val=4058)
-    _check_argument('sample_rate', c['audio'], restricted=True, val_type=int, min_val=512, max_val=100000)
-    _check_argument('frame_length_ms', c['audio'], restricted=True, val_type=float, min_val=10, max_val=1000, alternative='win_length')
-    _check_argument('frame_shift_ms', c['audio'], restricted=True, val_type=float, min_val=1, max_val=1000, alternative='hop_length')
-    _check_argument('preemphasis', c['audio'], restricted=True, val_type=float, min_val=0, max_val=1)
-    _check_argument('min_level_db', c['audio'], restricted=True, val_type=int, min_val=-1000, max_val=10)
-    _check_argument('ref_level_db', c['audio'], restricted=True, val_type=int, min_val=0, max_val=1000)
-    _check_argument('power', c['audio'], restricted=True, val_type=float, min_val=1, max_val=5)
-    _check_argument('griffin_lim_iters', c['audio'], restricted=True, val_type=int, min_val=10, max_val=1000)
-
-    # vocabulary parameters
-    _check_argument('characters', c, restricted=False, val_type=dict)
-    _check_argument('pad', c['characters'] if 'characters' in c.keys() else {}, restricted='characters' in c.keys(), val_type=str)
-    _check_argument('eos', c['characters'] if 'characters' in c.keys() else {}, restricted='characters' in c.keys(), val_type=str)
-    _check_argument('bos', c['characters'] if 'characters' in c.keys() else {}, restricted='characters' in c.keys(), val_type=str)
-    _check_argument('characters', c['characters'] if 'characters' in c.keys() else {}, restricted='characters' in c.keys(), val_type=str)
-    _check_argument('phonemes', c['characters'] if 'characters' in c.keys() else {}, restricted='characters' in c.keys(), val_type=str)
-    _check_argument('punctuations', c['characters'] if 'characters' in c.keys() else {}, restricted='characters' in c.keys(), val_type=str)
-
-    # normalization parameters
-    _check_argument('signal_norm', c['audio'], restricted=True, val_type=bool)
-    _check_argument('symmetric_norm', c['audio'], restricted=True, val_type=bool)
-    _check_argument('max_norm', c['audio'], restricted=True, val_type=float, min_val=0.1, max_val=1000)
-    _check_argument('clip_norm', c['audio'], restricted=True, val_type=bool)
-    _check_argument('mel_fmin', c['audio'], restricted=True, val_type=float, min_val=0.0, max_val=1000)
-    _check_argument('mel_fmax', c['audio'], restricted=True, val_type=float, min_val=500.0)
-    _check_argument('do_trim_silence', c['audio'], restricted=True, val_type=bool)
-    _check_argument('trim_db', c['audio'], restricted=True, val_type=int)
-
-    # training parameters
-    _check_argument('batch_size', c, restricted=True, val_type=int, min_val=1)
-    _check_argument('eval_batch_size', c, restricted=True, val_type=int, min_val=1)
-    _check_argument('r', c, restricted=True, val_type=int, min_val=1)
-    _check_argument('gradual_training', c, restricted=False, val_type=list)
-    _check_argument('loss_masking', c, restricted=True, val_type=bool)
-    # _check_argument('grad_accum', c, restricted=True, val_type=int, min_val=1, max_val=100)
-
-    # validation parameters
-    _check_argument('run_eval', c, restricted=True, val_type=bool)
-    _check_argument('test_delay_epochs', c, restricted=True, val_type=int, min_val=0)
-    _check_argument('test_sentences_file', c, restricted=False, val_type=str)
-
-    # optimizer
-    _check_argument('noam_schedule', c, restricted=False, val_type=bool)
-    _check_argument('grad_clip', c, restricted=True, val_type=float, min_val=0.0)
-    _check_argument('epochs', c, restricted=True, val_type=int, min_val=1)
-    _check_argument('lr', c, restricted=True, val_type=float, min_val=0)
-    _check_argument('wd', c, restricted=True, val_type=float, min_val=0)
-    _check_argument('warmup_steps', c, restricted=True, val_type=int, min_val=0)
-    _check_argument('seq_len_norm', c, restricted=True, val_type=bool)
-
-    # tacotron prenet
-    _check_argument('memory_size', c, restricted=True, val_type=int, min_val=-1)
-    _check_argument('prenet_type', c, restricted=True, val_type=str, enum_list=['original', 'bn'])
-    _check_argument('prenet_dropout', c, restricted=True, val_type=bool)
-
-    # attention
-    _check_argument('attention_type', c, restricted=True, val_type=str, enum_list=['graves', 'original'])
-    _check_argument('attention_heads', c, restricted=True, val_type=int)
-    _check_argument('attention_norm', c, restricted=True, val_type=str, enum_list=['sigmoid', 'softmax'])
-    _check_argument('windowing', c, restricted=True, val_type=bool)
-    _check_argument('use_forward_attn', c, restricted=True, val_type=bool)
-    _check_argument('forward_attn_mask', c, restricted=True, val_type=bool)
-    _check_argument('transition_agent', c, restricted=True, val_type=bool)
-    _check_argument('transition_agent', c, restricted=True, val_type=bool)
-    _check_argument('location_attn', c, restricted=True, val_type=bool)
-    _check_argument('bidirectional_decoder', c, restricted=True, val_type=bool)
-
-    # stopnet
-    _check_argument('stopnet', c, restricted=True, val_type=bool)
-    _check_argument('separate_stopnet', c, restricted=True, val_type=bool)
-
-    # tensorboard
-    _check_argument('print_step', c, restricted=True, val_type=int, min_val=1)
-    _check_argument('save_step', c, restricted=True, val_type=int, min_val=1)
-    _check_argument('checkpoint', c, restricted=True, val_type=bool)
-    _check_argument('tb_model_param_stats', c, restricted=True, val_type=bool)
-
-    # dataloading
-    # pylint: disable=import-outside-toplevel
-    from TTS.utils.text import cleaners
-    _check_argument('text_cleaner', c, restricted=True, val_type=str, enum_list=dir(cleaners))
-    _check_argument('enable_eos_bos_chars', c, restricted=True, val_type=bool)
-    _check_argument('num_loader_workers', c, restricted=True, val_type=int, min_val=0)
-    _check_argument('num_val_loader_workers', c, restricted=True, val_type=int, min_val=0)
-    _check_argument('batch_group_size', c, restricted=True, val_type=int, min_val=0)
-    _check_argument('min_seq_len', c, restricted=True, val_type=int, min_val=0)
-    _check_argument('max_seq_len', c, restricted=True, val_type=int, min_val=10)
-
-    # paths
-    _check_argument('output_path', c, restricted=True, val_type=str)
-
-    # multi-speaker gst
-    _check_argument('use_speaker_embedding', c, restricted=True, val_type=bool)
-    _check_argument('style_wav_for_test', c, restricted=True, val_type=str)
-    _check_argument('use_gst', c, restricted=True, val_type=bool)
-
-    # datasets - checking only the first entry
-    _check_argument('datasets', c, restricted=True, val_type=list)
-    for dataset_entry in c['datasets']:
-        _check_argument('name', dataset_entry, restricted=True, val_type=str)
-        _check_argument('path', dataset_entry, restricted=True, val_type=str)
-        _check_argument('meta_file_train', dataset_entry, restricted=True, val_type=str)
-        _check_argument('meta_file_val', dataset_entry, restricted=True, val_type=str)

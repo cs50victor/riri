@@ -9,11 +9,10 @@ def text_to_seqvec(text, CONFIG, use_cuda):
     if CONFIG.use_phonemes:
         seq = np.asarray(
             phoneme_to_sequence(text, text_cleaner, CONFIG.phoneme_language,
-                                CONFIG.enable_eos_bos_chars,
-                                tp=CONFIG.characters if 'characters' in CONFIG.keys() else None),
+                                CONFIG.enable_eos_bos_chars),
             dtype=np.int32)
     else:
-        seq = np.asarray(text_to_sequence(text, text_cleaner, tp=CONFIG.characters if 'characters' in CONFIG.keys() else None), dtype=np.int32)
+        seq = np.asarray(text_to_sequence(text, text_cleaner), dtype=np.int32)
     # torch tensor
     chars_var = torch.from_numpy(seq).unsqueeze(0)
     if use_cuda:
@@ -59,7 +58,7 @@ def inv_spectrogram(postnet_output, ap, CONFIG):
     if CONFIG.model in ["Tacotron", "TacotronGST"]:
         wav = ap.inv_spectrogram(postnet_output.T)
     else:
-        wav = ap.inv_melspectrogram(postnet_output.T)
+        wav = ap.inv_mel_spectrogram(postnet_output.T)
     return wav
 
 
@@ -68,24 +67,6 @@ def id_to_torch(speaker_id):
         speaker_id = np.asarray(speaker_id)
         speaker_id = torch.from_numpy(speaker_id).unsqueeze(0)
     return speaker_id
-
-
-# TODO: perform GL with pytorch for batching
-def apply_griffin_lim(inputs, input_lens, CONFIG, ap):
-    '''Apply griffin-lim to each sample iterating throught the first dimension.
-    Args:
-        inputs (Tensor or np.Array): Features to be converted by GL. First dimension is the batch size.
-        input_lens (Tensor or np.Array): 1D array of sample lengths.
-        CONFIG (Dict): TTS config.
-        ap (AudioProcessor): TTS audio processor.
-    '''
-    wavs = []
-    for idx, spec in enumerate(inputs):
-        wav_len = (input_lens[idx] * ap.hop_length) - ap.hop_length  # inverse librosa padding
-        wav = inv_spectrogram(spec, ap, CONFIG)
-        # assert len(wav) == wav_len, f" [!] wav lenght: {len(wav)} vs expected: {wav_len}"
-        wavs.append(wav[:wav_len])
-    return wavs
 
 
 def synthesis(model,
@@ -97,7 +78,6 @@ def synthesis(model,
               style_wav=None,
               truncated=False,
               enable_eos_bos_chars=False, #pylint: disable=unused-argument
-              use_griffin_lim=False,
               do_trim_silence=False):
     """Synthesize voice for the given text.
 
@@ -131,10 +111,8 @@ def synthesis(model,
     postnet_output, decoder_output, alignment = parse_outputs(
         postnet_output, decoder_output, alignments)
     # plot results
-    wav = None
-    if use_griffin_lim:
-        wav = inv_spectrogram(postnet_output, ap, CONFIG)
-        # trim silence
-        if do_trim_silence:
-            wav = trim_silence(wav, ap)
-    return wav, alignment, decoder_output, postnet_output, stop_tokens, inputs
+    wav = inv_spectrogram(postnet_output, ap, CONFIG)
+    # trim silence
+    if do_trim_silence:
+        wav = trim_silence(wav, ap)
+    return wav, alignment, decoder_output, postnet_output, stop_tokens

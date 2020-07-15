@@ -12,7 +12,6 @@ from TTS.utils.speakers import load_speaker_mapping
 from TTS.utils.synthesis import *
 
 import re
-
 alphabets = r"([A-Za-z])"
 prefixes = r"(Mr|St|Mrs|Ms|Dr)[.]"
 suffixes = r"(Inc|Ltd|Jr|Sr|Co)"
@@ -32,7 +31,7 @@ class Synthesizer(object):
         self.load_tts(self.config.tts_checkpoint, self.config.tts_config,
                       self.config.use_cuda)
         if self.config.wavernn_lib_path:
-            self.load_wavernn(self.config.wavernn_lib_path,self.config.wavernn_path,
+            self.load_wavernn(self.config.wavernn_lib_path, self.config.wavernn_path,
                               self.config.wavernn_file, self.config.wavernn_config,
                               self.config.use_cuda)
 
@@ -65,7 +64,7 @@ class Synthesizer(object):
         if 'r' in cp:
             self.tts_model.decoder.set_r(cp['r'])
 
-    def load_wavernn(self, lib_path, model_path ,model_file, model_config, use_cuda):
+    def load_wavernn(self, lib_path, model_path, model_file, model_config, use_cuda):
         # TODO: set a function in wavernn code base for model setup and call it here.
         sys.path.append(lib_path) # set this if TTS is not installed globally
         from WaveRNN.models.wavernn import Model
@@ -79,7 +78,10 @@ class Synthesizer(object):
             rnn_dims=512,
             fc_dims=512,
             mode=self.wavernn_config.mode,
+            mulaw=self.wavernn_config.mulaw,
             pad=self.wavernn_config.pad,
+            use_aux_net=self.wavernn_config.use_aux_net,
+            use_upsample_net = self.wavernn_config.use_upsample_net,
             upsample_factors=self.wavernn_config.upsample_factors,
             feat_dims=80,
             compute_dims=128,

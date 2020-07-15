@@ -1,0 +1,1 @@
+/mnt/c/Users/Victor/Documents/github Stress-Free-AI/riri/TTS/server/model/wavernn/

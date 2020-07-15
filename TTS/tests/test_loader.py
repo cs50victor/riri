@@ -36,10 +36,8 @@ class TestTTSDataset(unittest.TestCase):
         dataset = TTSDataset.MyDataset(
             r,
             c.text_cleaner,
-            compute_linear_spec=True,
             ap=self.ap,
-            meta_data=items,
-            tp=c.characters if 'characters' in c.keys() else None,
+            meta_data=items, 
             batch_group_size=bgs,
             min_seq_len=c.min_seq_len,
             max_seq_len=float("inf"),
@@ -139,11 +137,13 @@ class TestTTSDataset(unittest.TestCase):
                 # NOTE: Below needs to check == 0 but due to an unknown reason
                 # there is a slight difference between two matrices.
                 # TODO: Check this assert cond more in detail.
-                assert abs(mel.T - mel_dl).max() < 1e-5, abs(mel.T - mel_dl).max()
+                assert abs((abs(mel.T)
+                            - abs(mel_dl)
+                            ).sum()) < 1e-5, (abs(mel.T) - abs(mel_dl)).sum()
 
                 # check mel-spec correctness
                 mel_spec = mel_input[0].cpu().numpy()
-                wav = self.ap.inv_melspectrogram(mel_spec.T)
+                wav = self.ap.inv_mel_spectrogram(mel_spec.T)
                 self.ap.save_wav(wav, OUTPATH + '/mel_inv_dataloader.wav')
                 shutil.copy(item_idx[0], OUTPATH + '/mel_target_dataloader.wav')
 
@@ -201,8 +201,7 @@ class TestTTSDataset(unittest.TestCase):
                 # check the second itme in the batch
                 assert linear_input[1 - idx, -1].sum() == 0
                 assert mel_input[1 - idx, -1].sum() == 0
-                assert stop_target[1, mel_lengths[1]-1] == 1
-                assert stop_target[1, mel_lengths[1]:].sum() == 0
+                assert stop_target[1 - idx, -1] == 1
                 assert len(mel_lengths.shape) == 1
 
                 # check batch zero-frame conditions (zero-frame disabled)

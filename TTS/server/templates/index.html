@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Mozillia - Text2Speech engine</title>
+    <title>Mozillia TTS</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -61,7 +61,7 @@
       <div class="row">
         <div class="col-lg-12 text-center">
           <h1 class="mt-5">Mozilla TTS</h1>
-          <textarea rows="5" class="form-control text-center" id="text" placeholder="Type here..." type="text" name="text">
+          <textarea rows="5" class="form-control" id="text" placeholder="Type here..." type="text" name="text">
           </textarea>
           <br/><br/>
           <button id="speak-button" name="speak" class="btn btn-dark btn-lg px-5">Speak</button><br/><br/>
@@ -87,11 +87,7 @@
                 return false
             }
             q('#speak-button').addEventListener('click', do_tts)
-            q('#text').addEventListener('keyup', function(e) {
-              if (e.keyCode == 13) { // enter
-                do_tts(e)
-              }
-            })
+
             function synthesize(text) {
                 fetch('/api/tts?text=' + encodeURIComponent(text), {cache: 'no-cache'})
                     .then(function(res) {

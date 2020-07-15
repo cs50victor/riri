@@ -60,6 +60,22 @@ def tweb(root_path, meta_file):
 #     return  {'text': texts, 'wavs': wavs}
 
 
+def mozilla_old(root_path, meta_file):
+    """Normalizes Mozilla meta data files to TTS format"""
+    txt_file = os.path.join(root_path, meta_file)
+    items = []
+    speaker_name = "mozilla_old"
+    with open(txt_file, 'r') as ttf:
+        for line in ttf:
+            cols = line.split('|')
+            batch_no = int(cols[1].strip().split("_")[0])
+            wav_folder = "batch{}".format(batch_no)
+            wav_file = os.path.join(root_path, wav_folder, "wavs_no_processing", cols[1].strip())
+            text = cols[0].strip()
+            items.append([text, wav_file, speaker_name])
+    return items
+
+
 def mozilla(root_path, meta_file):
     """Normalizes Mozilla meta data files to TTS format"""
     txt_file = os.path.join(root_path, meta_file)
@@ -71,22 +87,6 @@ def mozilla(root_path, meta_file):
             wav_file = cols[1].strip()
             text = cols[0].strip()
             wav_file = os.path.join(root_path, "wavs", wav_file)
-            items.append([text, wav_file, speaker_name])
-    return items
-
-
-def mozilla_de(root_path, meta_file):
-    """Normalizes Mozilla meta data files to TTS format"""
-    txt_file = os.path.join(root_path, meta_file)
-    items = []
-    speaker_name = "mozilla"
-    with open(txt_file, 'r', encoding="ISO 8859-1") as ttf:
-        for line in ttf:
-            cols = line.strip().split('|')
-            wav_file = cols[0].strip()
-            text = cols[1].strip()
-            folder_name = f"BATCH_{wav_file.split('_')[0]}_FINAL"
-            wav_file = os.path.join(root_path, folder_name, wav_file)
             items.append([text, wav_file, speaker_name])
     return items
 
@@ -186,22 +186,4 @@ def libri_tts(root_path, meta_files=None):
                 items.append([text, wav_file, speaker_name])
     for item in items:
         assert os.path.exists(item[1]), f" [!] wav file is not exist - {item[1]}"
-    return items
-
-
-def custom_turkish(root_path, meta_file):
-    txt_file = os.path.join(root_path, meta_file)
-    items = []
-    speaker_name = "turkish-female"
-    skipped_files = []
-    with open(txt_file, 'r', encoding='utf-8') as ttf:
-        for line in ttf:
-            cols = line.split('|')
-            wav_file = os.path.join(root_path, 'wavs', cols[0].strip() + '.wav')
-            if not os.path.exists(wav_file):
-                skipped_files.append(wav_file)
-                continue
-            text = cols[1].strip()
-            items.append([text, wav_file, speaker_name])
-    print(f" [!] {len(skipped_files)} files skipped. They are not exist...")
     return items

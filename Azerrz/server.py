@@ -17,9 +17,9 @@ def create_argparser():
     parser.add_argument('--wavernn_lib_path', type=str, help='path to WaveRNN project folder to be imported. If this is not passed, model uses Griffin-Lim for synthesis.')
     parser.add_argument('--wavernn_file', type=str, help='path to WaveRNN checkpoint file.')
     parser.add_argument('--wavernn_config', type=str, help='path to WaveRNN config file.')
-    parser.add_argument('--is_wavernn_batched', type=convert_boolean, default=True, help='true to use batched WaveRNN.')
+    parser.add_argument('--is_wavernn_batched', type=convert_boolean, default=False, help='true to use batched WaveRNN.')
     parser.add_argument('--port', type=int, default=5002, help='port to listen on.')
-    parser.add_argument('--use_cuda', type=convert_boolean, default=False, help='true to use CUDA.')
+    parser.add_argument('--use_cuda', type=convert_boolean, default=True, help='true to use CUDA.')
     parser.add_argument('--debug', type=convert_boolean, default=False, help='true to enable Flask debug mode.')
     return parser
 
@@ -33,23 +33,30 @@ tts_checkpoint_file = os.path.join(embedded_tts_folder, 'checkpoint_340000.pth.t
 tts_config_file = os.path.join(embedded_tts_folder, 'config.json')
 
 embedded_wavernn_folder = os.path.join(embedded_model_folder, 'wavernn')
-wavernn_checkpoint_file = os.path.join(embedded_wavernn_folder, 'wavercheckpoint.pth.tar')
-wavernn_config_file = os.path.join(embedded_wavernn_folder, 'waverconfig.json')
+wavernn_checkpoint_file = os.path.join(embedded_wavernn_folder, 'checkpoint.pkl')
+wavernn_config_file = os.path.join(embedded_wavernn_folder, 'config.yml')
 
+checkpoint_file = os.path.join(embedded_model_folder, 'checkpoint.pth.tar')
+config_file = os.path.join(embedded_model_folder, 'config.json')
+
+# Default options with embedded model files
+if os.path.isfile(checkpoint_file):
+    default_tts_checkpoint = checkpoint_file
+else:
+    default_tts_checkpoint = None
+
+if os.path.isfile(config_file):
+    default_tts_config = config_file
+else:
+    default_tts_config = None
 
 args = create_argparser().parse_args()
 
 # If these were not specified in the CLI args, use default values
-args.wavernn_lib_path = "/mnt/c/Users/Victor/Documents/github Stress-Free-AI/riri/WaveRNN"
-args.wavernn_path = embedded_wavernn_folder
-if not args.tts_checkpoint and os.path.isfile(tts_checkpoint_file):
-    args.tts_checkpoint = tts_checkpoint_file
-if not args.tts_config and os.path.isfile(tts_config_file):
-    args.tts_config = tts_config_file
-if not args.wavernn_file and os.path.isfile(wavernn_checkpoint_file):
-    args.wavernn_file = wavernn_checkpoint_file
-if not args.wavernn_config and os.path.isfile(wavernn_config_file):
-    args.wavernn_config = wavernn_config_file
+if not args.tts_checkpoint:
+    args.tts_checkpoint = default_tts_checkpoint
+if not args.tts_config:
+    args.tts_config = default_tts_config
 
 synthesizer = Synthesizer(args)
 
