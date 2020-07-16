@@ -10,18 +10,17 @@ https://www.orangenarwhals.com/2020/06/town-announcer-npc-for-online-town-icra20
      -    Download this [Zip] https://github.com/mozilla/TTS/tree/53b24625a7b898447b0cda2929503b96752d9eae rename it to TTS
      -  Download model (config and ) from  https://drive.google.com/drive/folders/10ymOlWHutqTtfDYhIbHULn2IKDKP0O9m into a folder "d" into TTS
      -    make sure you're using a conda env
-     -    python setup.py develop
+     -    python setup.py develop [for pip TTS]
      -    python setup.py build
      -    pip install -r requirements.txt
      -    python setup.py bdist_wheel --checkpoint .\d\checkpoint_name.tar --model_config .\d\config.json
      -    pip uninstall tensorflow(if needed)
      -    cd ..
      -    pip install ./TTS/dist/TTS-0.0.1+4f61539-py3-none-any.whl (your filename will differ)
-     -    pip install -e ./TTS
-     -    [Activating waveRNN] python -m TTS.server.server --wavernn_lib_path ./model/wavernn/ --wavernn_file wavercheckpoint.pth.tar --wavernn_config waverconfig.json
-     -    python -m TTS.server.server
+     -    [Downlaod WaveRNN from github and checkout to required branch - link path to server.py    (lib_path)
      -    pip uninstall numba
      -    pip install numba==0.48
+     -    python -m TTS.server.server
      -    Anything else read this https://github.com/mozilla/TTS/issues/423
      -     and https://gist.github.com/jcc10/d6d68df2204e239ce1e6960a9b107aac
 

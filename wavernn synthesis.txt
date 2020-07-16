@@ -1,1 +1,8 @@
 /mnt/c/Users/Victor/Documents/github Stress-Free-AI/riri/TTS/server/model/wavernn/
+
+
+use_Aux_net
+use sample net
+mulaw
+
+sample rate 16k
