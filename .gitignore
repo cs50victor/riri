@@ -1,8 +1,7 @@
 **.idea/
 *.pyc
 .DS_Store
-*.py[cod]
 *$py.class
 *.so
-TTS/d/
-**TTS
+**/TTS/d
+**/TTS/server/model

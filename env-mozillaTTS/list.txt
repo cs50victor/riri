@@ -1,0 +1,12 @@
+args.wavernn_lib_path = "/mnt/c/Users/Victor/Documents/github Stress-Free-AI/riri/env-mozillaTTS/WaveRNN"
+
+args.wavernn_lib_path = "/mnt/c/Users/Victor/Documents/github Stress-Free-AI/riri/env-mozillaTTS/WaveRNN"
+args.wavernn_path = "/mnt/c/Users/Victor/Documents/github Stress-Free-AI/riri/env-mozillaTTS/TTS/server/model/wavernn"
+args.wavernn_file = "/mnt/c/Users/Victor/Documents/github Stress-Free-AI/riri/env-mozillaTTS/TTS/server/model/wavernn/checkpoint_433000.pth.tar"
+args.wavernn_config = "/mnt/c/Users/Victor/Documents/github Stress-Free-AI/riri/env-mozillaTTS/TTS/server/model/wavernn/config.json"
+
+tts_checkpoint_file = os.path.join(embedded_tts_folder, 'checkpoint_340000.pth.tar')
+
+
+wget http://developer.download.nvidia.com/compute/cuda/10.1/local_installers/cuda_10.1.105_418.39_linux.run
+     https://developer.nvidia.com/compute/cuda//Prod/local_installers/
