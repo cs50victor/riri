@@ -6,6 +6,7 @@ This field encompasses deepfakes, image synthesis, audio synthesis, text synthes
 Deep fake voice:  https://www.youtube.com/watch?v=BkH2zEHJ2Ng
 Deep fake face: https://www.youtube.com/watch?v=3vHvOyZ0GbY
 Image synthesis: https://www.reddit.com/r/MediaSynthesis/comments/hqpcb9/ive_been_having_way_too_much_fun_and_wasting_way/
+Website building : debuild.co
 
 
 
