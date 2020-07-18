@@ -1,3 +1,25 @@
+# Media Synthesis
+**Synthetic media describes the use of artificial intelligence to generate and manipulate data, most often to automate the creation of entertainment.**
+This field encompasses deepfakes, image synthesis, audio synthesis, text synthesis, style transfer, speech synthesis, and much more.
+
+4k video upscale: https://youtube.com/watch?v=aJzmCUvLNrI&feature=youtu.be
+Deep fake voice:  https://www.youtube.com/watch?v=BkH2zEHJ2Ng
+Deep fake face: https://www.youtube.com/watch?v=3vHvOyZ0GbY
+Image synthesis: https://www.reddit.com/r/MediaSynthesis/comments/hqpcb9/ive_been_having_way_too_much_fun_and_wasting_way/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # ~~S~~RiRi
 Neural TextToSpeech 
 
