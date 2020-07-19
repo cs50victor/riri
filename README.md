@@ -61,7 +61,7 @@ Python and C++
                       => twitter => instagram
                        # Science, Tech and Business , Quest for knowledge , Making knowledge entertaining, Turning kowldge to cash, Turning Code to cash
 
-# AI and Robotics [Web Apps, IOS Apps, AI and AR]
+# AI and Robotics [Web Apps, IOS Apps, AI and AR]- AI and Tech beating TikTokers
 # 
 Youtube- codyko (jokes/reaction)
        -  Talk about CGI, make CGI and AI video editing [Daniel Schiffer], talk about AI, make AI, [Corridow View, Effects like Zach King,Billie Elish AI, Tinder Autoswipe, AI video editing]
