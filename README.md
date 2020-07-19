@@ -12,7 +12,7 @@ Website building : debuild.co
 
 # ~~S~~RiRi
 Neural TextToSpeech 
-
+Goal- Her(2013)
 Tutorial - https://levelup.gitconnected.com/installing-mozilla-tts-on-a-raspberry-pi-4-e6af16459ab9
 
 https://www.orangenarwhals.com/2020/06/town-announcer-npc-for-online-town-icra2020-virtual-happy-hour/
@@ -62,7 +62,7 @@ Python and C++
                        # Science, Tech and Business , Quest for knowledge , Making knowledge entertaining, Turning kowldge to cash, Turning Code to cash
 
 # AI and Robotics [Web Apps, IOS Apps, AI and AR]- AI and Tech beating TikTokers
-# Science and Enginnering, Techonlogy and Business- Makin Money with Software development, Making money with tech, Making knowledge fun-[Vsource, Mark Rober] 
+# Science and Enginnering, Techonlogy and Business- Makin Money with Software development, Making money with tech, Making knowledge fun-[Vsource, Mark Rober,Veritasium, Mr Beast, Practical Engineering] 
 Youtube- codyko (jokes/reaction)
        -  Talk about CGI, make CGI and AI video editing [Daniel Schiffer], talk about AI, make AI, [Corridow View, Effects like Zach King,Billie Elish AI, Tinder Autoswipe, AI video editing]
        -  Ar like IAMLUCID [VR]
