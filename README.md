@@ -70,7 +70,7 @@ Python and C++
     Traffic Funnel
      Youtube(organic) => patreon
                       => twitter => instagram
-
+                       # Science, Tech and Business , Quest for knowledge , Making knowledge entertaining, Turning kowldge to cash, Turning Code to cash
 Youtube- codyko (jokes/reaction)
        -  Talk about CGI, make CGI, talk about AI, make AI, [Corridow View, Effects like Zach King,Billie Elish AI, Tinder Autoswipe]
        - Kurzgesagt – In a Nutshell (education/storytelling (strangerthings intresting)/ animation motion design)
@@ -87,5 +87,6 @@ Youtube- codyko (jokes/reaction)
        - Business youtube (how to make money)
        - Youtube growth and sucess story.(talk about people making)
        - WawamuStats
-       -Drama
+       - DeepFake Music
+       - Drama
 animations--
