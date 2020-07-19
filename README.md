@@ -60,9 +60,13 @@ Python and C++
      Youtube(organic) => patreon
                       => twitter => instagram
                        # Science, Tech and Business , Quest for knowledge , Making knowledge entertaining, Turning kowldge to cash, Turning Code to cash
+
+# AI and Robotics
+# 
 Youtube- codyko (jokes/reaction)
        -  Talk about CGI, make CGI and AI video editing [Daniel Schiffer], talk about AI, make AI, [Corridow View, Effects like Zach King,Billie Elish AI, Tinder Autoswipe, AI video editing]
        -  Ar like IAMLUCID [VR]
+       -  Beating the FazeClan with AI
        - Kurzgesagt – In a Nutshell (education/storytelling (strangerthings intresting)/ animation motion design)
             - Odds1out , Jidenanimation, Infographics shows, Dear diary, Andrea trabea
        - Jake tren (education/story)
