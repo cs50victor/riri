@@ -10,17 +10,6 @@ Website building : debuild.co
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 # ~~S~~RiRi
 Neural TextToSpeech 
 
@@ -72,7 +61,8 @@ Python and C++
                       => twitter => instagram
                        # Science, Tech and Business , Quest for knowledge , Making knowledge entertaining, Turning kowldge to cash, Turning Code to cash
 Youtube- codyko (jokes/reaction)
-       -  Talk about CGI, make CGI, talk about AI, make AI, [Corridow View, Effects like Zach King,Billie Elish AI, Tinder Autoswipe]
+       -  Talk about CGI, make CGI, talk about AI, make AI, [Corridow View, Effects like Zach King,Billie Elish AI, Tinder Autoswipe, AI video editing]
+       -  Ar like IAMLUCID [VR]
        - Kurzgesagt – In a Nutshell (education/storytelling (strangerthings intresting)/ animation motion design)
             - Odds1out , Jidenanimation, Infographics shows, Dear diary, Andrea trabea
        - Jake tren (education/story)
