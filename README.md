@@ -72,6 +72,7 @@ Python and C++
                       => twitter => instagram
 
 Youtube- codyko (jokes/reaction)
+       -  Talk about CGI, make CGI, talk about AI, make AI, [Corridow View, Billie Elish AI, Tinder Autoswipe]
        - Kurzgesagt – In a Nutshell (education/storytelling (strangerthings intresting)/ animation motion design)
             - Odds1out , Jidenanimation, Infographics shows, Dear diary, Andrea trabea
        - Jake tren (education/story)
