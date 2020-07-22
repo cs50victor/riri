@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Mozillia - Text2Speech engine</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <style>
+      body {
+        padding-top: 54px;
+        font-family: "Fira Code", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      }
+      textarea {
+          resize: vertical;
+          width: 100%;
+          border: 1.5px solid rgb(65, 65, 65) !important;
+      }
+      @media (min-width: 992px) {
+        body {
+          padding-top: 56px;
+        }
+      }
+
+    </style>
+  </head>
+  
+  <body>
+    <!-- Navigation -->
+    <!--
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Mozilla TTS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    -->
+
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h1 class="mt-5">Mozilla TTS</h1>
+          <textarea rows="5" class="form-control" id="text" placeholder="Type here..." type="text" name="text">
+          </textarea>
+          <br/><br/>
+          <button id="speak-button" name="speak" class="btn btn-dark btn-lg px-5">Speak</button><br/><br/>
+          <audio id="audio" controls autoplay hidden></audio>
+          <p id="message"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script>
+            function q(selector) {return document.querySelector(selector)}
+            q('#text').focus()
+            function do_tts(e) {
+                text = q('#text').value
+                if (text) {
+                    q('#message').textContent = 'Synthesizing...'
+                    q('#speak-button').disabled = true
+                    q('#audio').hidden = true
+                    synthesize(text)
+                }
+                e.preventDefault()
+                return false
+            }
+            q('#speak-button').addEventListener('click', do_tts)
+
+            function synthesize(text) {
+                fetch('/api/tts?text=' + encodeURIComponent(text), {cache: 'no-cache'})
+                    .then(function(res) {
+                        if (!res.ok) throw Error(res.statusText)
+                            return res.blob()
+                        }).then(function(blob) {
+                            q('#message').textContent = ''
+                            q('#speak-button').disabled = false
+                            q('#audio').src = URL.createObjectURL(blob)
+                            q('#audio').hidden = false
+                        }).catch(function(err) {
+                            q('#message').textContent = 'Error: ' + err.message
+                            q('#speak-button').disabled = false
+                        })
+            }
+        </script>
+
+  </body>
+
+</html>
