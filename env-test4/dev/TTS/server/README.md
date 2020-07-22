@@ -1,3 +1,32 @@
+# DOWNLOAD from the dev branch 
+
+https://github.com/mozilla/TTS/tree/dev
+
+# model folder content:
+
+TTS model:
+https://drive.google.com/drive/folders/1Y_0PcB7W6apQChXtbt6v3fAiNwVf4ER5
+
+and the PWGAN model (Vocode) from 
+
+https://github.com/mozilla/TTS/wiki/Released-Models
+
+https://drive.google.com/drive/folders/1Mnr6pjls5GCNoEB1sXseyC-WLcvnByXE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## TTS example web-server
 
 You'll need a model package (Zip file, includes TTS Python wheel, model files, server configuration, and optional nginx/uwsgi configs). Publicly available models are listed [here](https://github.com/mozilla/TTS/wiki/Released-Models#simple-packaging---self-contained-package-that-runs-an-http-api-for-a-pre-trained-tts-model).
