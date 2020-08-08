@@ -63,7 +63,8 @@ Python and C++
 
 # AI and Robotics [Web Apps, IOS Apps, AI and AR]- AI and Tech beating TikTokers
 # Science and Enginnering, Techonlogy and Business- Makin Money with Software development, Making money with tech, Making knowledge fun-[Vsource, Mark Rober,Veritasium, Mr Beast, Practical Engineering] 
-Youtube- codyko (jokes/reaction)
+
+     - Youtube- codyko (jokes/reaction)
      - Talk about CGI, make CGI and AI video editing [Daniel Schiffer], talk about AI, make AI, [Corridow View, Effects like Zach King,Billie Elish AI, Tinder Autoswipe, AI video editing]
      -  Ar like IAMLUCID [VR]
      -  Beating the FazeClan with AI
