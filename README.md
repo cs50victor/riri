@@ -65,7 +65,7 @@ Python and C++
 # AI and Robotics [Web Apps, IOS Apps, AI and AR]- AI and Tech beating TikTokers
 # Science and Enginnering, Techonlogy and Business- Makin Money with Software development, Making money with tech, Making knowledge fun-[Vsource, Mark Rober,Veritasium, Mr Beast, Practical Engineering] 
      - Graham Sephan - less editing , planning for 8 hours, working from 6am to 6pm, $200,000 from adsense, patreon 50K, merch 100K, sponsors and affiliates 100k
-     - Youtube- codyko (jokes/reaction)
+     - Youtube- codyko (jokes/reaction), Joe rogan
      - Talk about CGI, make CGI and AI video editing [Daniel Schiffer], talk about AI, make AI, [Corridow View, Effects like Zach King,Billie Elish AI, Tinder Autoswipe, AI video editing]
      -  Ar like IAMLUCID [VR]
      -  Beating the FazeClan with AI
