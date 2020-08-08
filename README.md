@@ -64,24 +64,24 @@ Python and C++
 # AI and Robotics [Web Apps, IOS Apps, AI and AR]- AI and Tech beating TikTokers
 # Science and Enginnering, Techonlogy and Business- Makin Money with Software development, Making money with tech, Making knowledge fun-[Vsource, Mark Rober,Veritasium, Mr Beast, Practical Engineering] 
 Youtube- codyko (jokes/reaction)
-       -  Talk about CGI, make CGI and AI video editing [Daniel Schiffer], talk about AI, make AI, [Corridow View, Effects like Zach King,Billie Elish AI, Tinder Autoswipe, AI video editing]
-       -  Ar like IAMLUCID [VR]
-       -  Beating the FazeClan with AI
-       - Kurzgesagt – In a Nutshell (education/storytelling (strangerthings intresting)/ animation motion design)
-            - Odds1out , Jidenanimation, Infographics shows, Dear diary, Andrea trabea
-       - Jake tren (education/story)
-       - Azzerz (voice over skits)
-       - Maestro Ziikos & Dripreport (fake cover songs) NAME- Deep Basement
-       - Fireship.io (tech)
-       - JxmyHighroller (Sports)
-       - Watch Mojo (Top 10 list -around movies/hollywood/anime)
-       - jacksepticeye/Tiko (Gameplay -3d model fornite face)
-       - Bright Side (just clickbait and random stuff)
-       - Fornite films (3d animation & SFM)
-       - Business youtube (how to make money)
-       - Youtube growth and sucess story.(talk about people making)
-       - WawamuStats
-       - DeepFake Music
-       - Drama
+     - Talk about CGI, make CGI and AI video editing [Daniel Schiffer], talk about AI, make AI, [Corridow View, Effects like Zach King,Billie Elish AI, Tinder Autoswipe, AI video editing]
+     -  Ar like IAMLUCID [VR]
+     -  Beating the FazeClan with AI
+     - Kurzgesagt – In a Nutshell (education/storytelling (strangerthings intresting)/ animation motion design)
+     - Odds1out , Jidenanimation, Infographics shows, Dear diary, Andrea trabea
+     - Jake tren (education/story)
+     - Azzerz (voice over skits)
+     - Maestro Ziikos & Dripreport (fake cover songs) NAME- Deep Basement
+     - Fireship.io (tech)
+     - JxmyHighroller (Sports)
+     - Watch Mojo (Top 10 list -around movies/hollywood/anime)
+     - jacksepticeye/Tiko (Gameplay -3d model fornite face)
+     - Bright Side (just clickbait and random stuff)
+     - Fornite films (3d animation & SFM)
+     - Business youtube (how to make money)
+     - Youtube growth and sucess story.(talk about people making)
+     - WawamuStats
+     - DeepFake Music
+     - Drama
 animations--
 Chaneel name- Bored guy, inquisitive, easily bored, 
