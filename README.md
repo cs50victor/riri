@@ -64,7 +64,7 @@ Python and C++
 
 # AI and Robotics [Web Apps, IOS Apps, AI and AR]- AI and Tech beating TikTokers
 # Science and Enginnering, Techonlogy and Business- Makin Money with Software development, Making money with tech, Making knowledge fun-[Vsource, Mark Rober,Veritasium, Mr Beast, Practical Engineering] 
-# Using a deep fake face/ deep fake voice (masked out body ) / blender and maya face recognition and photoshop animatoins
+# Using a deep fake face / deep fake voice  / blender and maya face recognition/ adobe character and photoshop animatoins
      - Graham Sephan - less editing , planning for 8 hours, working from 6am to 6pm, $200,000 from adsense, patreon 50K, merch 100K, sponsors and affiliates 100k
      - Research from reddit
      - Credit Cards have the highest CPM
