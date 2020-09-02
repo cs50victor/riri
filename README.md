@@ -1,3 +1,4 @@
+# add maxi
 # “Formal education will make you a living; self-education will make you a fortune.” --Jim Rohn
 # Media Synthesis
 **Synthetic media describes the use of artificial intelligence to generate and manipulate data, most often to automate the creation of entertainment.**
